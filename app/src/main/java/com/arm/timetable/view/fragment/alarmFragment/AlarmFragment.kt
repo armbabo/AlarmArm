@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arm.timetable.R
+import com.arm.timetable.view.fragment.addAlarm.AddAlarm
 import io.reactivex.Maybe
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.alarm_fragment.*
@@ -42,7 +43,10 @@ class AlarmFragment : Fragment(), AlarmView {
             adapter = alarmAdapter
         }
         btnAddAlarm.setOnClickListener {
-
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.fl_add_fragment,AddAlarm.newInstance())
+                ?.addToBackStack(null)
+                ?.commit()
         }
     }
 
