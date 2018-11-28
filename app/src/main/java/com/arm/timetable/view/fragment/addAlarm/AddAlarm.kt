@@ -1,15 +1,9 @@
 package com.arm.timetable.view.fragment.addAlarm
 
-import android.arch.lifecycle.ViewModelProviders
-import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
 import com.arm.timetable.R
+import com.arm.timetable.base.BaseFragment
 
-class AddAlarm : Fragment() {
+class AddAlarm : BaseFragment<AddAlarmViewModel,AddAlarmView>() {
 
     companion object {
         fun newInstance() = AddAlarm()
@@ -17,17 +11,11 @@ class AddAlarm : Fragment() {
 
     private lateinit var viewModel: AddAlarmViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.add_alarm_fragment, container, false)
+    override fun createViewModel(): AddAlarmViewModel {
+        return viewModel
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(AddAlarmViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun layoutResource(): Int {
+        return R.layout.add_alarm_fragment
     }
-
 }

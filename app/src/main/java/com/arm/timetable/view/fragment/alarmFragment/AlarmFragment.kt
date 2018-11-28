@@ -1,13 +1,11 @@
 package com.arm.timetable.view.fragment.alarmFragment
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.arm.timetable.R
+import com.arm.timetable.base.BaseFragment
 import com.arm.timetable.view.fragment.addAlarm.AddAlarm
 import io.reactivex.Maybe
 import io.reactivex.subjects.PublishSubject
@@ -16,7 +14,7 @@ import org.koin.android.ext.android.get
 import org.koin.core.parameter.parametersOf
 import timber.log.Timber
 
-class AlarmFragment : Fragment(), AlarmView {
+class AlarmFragment : BaseFragment<AlarmViewModel,AlarmView>(), AlarmView {
 
     private val clickOne : PublishSubject<String> = PublishSubject.create()
     private val clickTwo : PublishSubject<Int> = PublishSubject.create()
@@ -27,13 +25,9 @@ class AlarmFragment : Fragment(), AlarmView {
         fun newInstance() = AlarmFragment()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.alarm_fragment, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        alarmAdapter.setListItem(arrayListOf(Alarm(1),Alarm(1),Alarm(1)))
+        alarmAdapter.setListItem(mutableListOf(Alarm(1),Alarm(1),Alarm(1)))
         recyclerView.apply {
             layoutManager = LinearLayoutManager(activity).apply {
                 orientation = LinearLayoutManager.VERTICAL
@@ -43,10 +37,7 @@ class AlarmFragment : Fragment(), AlarmView {
             adapter = alarmAdapter
         }
         btnAddAlarm.setOnClickListener {
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.fl_add_fragment,AddAlarm.newInstance())
-                ?.addToBackStack(null)
-                ?.commit()
+            goToFragment(AddAlarm.newInstance())
         }
     }
 
@@ -73,4 +64,11 @@ class AlarmFragment : Fragment(), AlarmView {
         return clickTwo.firstElement()
     }
 
+    override fun createViewModel(): AlarmViewModel {
+        return viewModel
+    }
+
+    override fun layoutResource(): Int {
+       return R.layout.alarm_fragment
+    }
 }

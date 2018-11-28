@@ -1,7 +1,7 @@
 package com.arm.timetable.view.fragment.addAlarm
 
-import android.arch.lifecycle.ViewModel;
+import com.arm.timetable.base.BaseViewModel
 
-class AddAlarmViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class AddAlarmViewModel : BaseViewModel() {
+
 }
