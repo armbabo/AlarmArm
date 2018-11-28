@@ -1,9 +1,8 @@
 package com.arm.timetable.view.fragment.alarmFragment
 
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.arm.timetable.R
 import com.arm.timetable.base.BaseFragment
 import com.arm.timetable.view.fragment.addAlarm.AddAlarm
@@ -29,11 +28,16 @@ class AlarmFragment : BaseFragment<AlarmViewModel,AlarmView>(), AlarmView {
         super.onViewCreated(view, savedInstanceState)
         alarmAdapter.setListItem(mutableListOf(Alarm(1),Alarm(1),Alarm(1)))
         recyclerView.apply {
-            layoutManager = LinearLayoutManager(activity).apply {
-                orientation = LinearLayoutManager.VERTICAL
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity).apply {
+                orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
                 reverseLayout = false
             }
-            addItemDecoration(DividerItemDecoration(activity,DividerItemDecoration.VERTICAL))
+            addItemDecoration(
+                androidx.recyclerview.widget.DividerItemDecoration(
+                    activity,
+                    androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+                )
+            )
             adapter = alarmAdapter
         }
         btnAddAlarm.setOnClickListener {

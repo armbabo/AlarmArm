@@ -1,13 +1,13 @@
 package com.arm.timetable.view.fragment.alarmFragment
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arm.timetable.R
 import kotlinx.android.synthetic.main.item_alarm.view.*
 
-class AlarmAdapter : RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder>() {
+class AlarmAdapter : androidx.recyclerview.widget.RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder>() {
 
     private var listItem : MutableList<Alarm> ?= arrayListOf()
 
@@ -33,7 +33,7 @@ class AlarmAdapter : RecyclerView.Adapter<AlarmAdapter.AlarmViewHolder>() {
         viewHolder.tvTime.text = getItem(position)?.longTime.toString()
     }
 
-    inner class AlarmViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class AlarmViewHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
         val tvTime = itemView.tvTime
     }
 }

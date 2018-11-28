@@ -1,8 +1,8 @@
 package com.arm.timetable.view.fragment
 
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.arm.timetable.R
 import com.arm.timetable.view.activity.mainActivity.MainAdapter
 import kotlinx.android.synthetic.main.home_fragment.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : androidx.fragment.app.Fragment() {
     lateinit var adapter : MainAdapter
 
     companion object {
