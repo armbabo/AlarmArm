@@ -2,7 +2,9 @@ package com.arm.timetable.view.fragment.alarmFragment
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.arm.timetable.R
 import com.arm.timetable.base.BaseFragment
 import com.arm.timetable.view.fragment.addAlarm.AddAlarm
@@ -28,14 +30,14 @@ class AlarmFragment : BaseFragment<AlarmViewModel,AlarmView>(), AlarmView {
         super.onViewCreated(view, savedInstanceState)
         alarmAdapter.setListItem(mutableListOf(Alarm(1),Alarm(1),Alarm(1)))
         recyclerView.apply {
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(activity).apply {
-                orientation = androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
+            layoutManager = LinearLayoutManager(activity).apply {
+                orientation = RecyclerView.VERTICAL
                 reverseLayout = false
             }
             addItemDecoration(
-                androidx.recyclerview.widget.DividerItemDecoration(
+                DividerItemDecoration(
                     activity,
-                    androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+                    DividerItemDecoration.VERTICAL
                 )
             )
             adapter = alarmAdapter

@@ -62,6 +62,9 @@ dependencies {
     annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0"
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    //retrofit
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     //    //date picker
     implementation('com.wdullaer:materialdatetimepicker:4.1.0') {
 //        exclude group: 'androidx.appcompat'
