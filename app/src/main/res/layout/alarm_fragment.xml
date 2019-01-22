@@ -8,7 +8,15 @@
         tools:context=".view.fragment.alarmFragment.AlarmFragment">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+	<Button
+			android:text="fake token"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/btnFake" android:layout_marginTop="8dp"
+			app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+			android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+			app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+			android:layout_marginStart="8dp"/>
+	<androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
@@ -21,4 +29,28 @@
 			app:layout_constraintEnd_toEndOf="parent"
 			android:layout_marginEnd="16dp"
 			android:layout_marginRight="16dp" android:id="@+id/btnAddAlarm"/>
+	<Button
+			android:text="reset token"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/btnReset" android:layout_marginTop="8dp"
+			app:layout_constraintTop_toBottomOf="@+id/btnFake" app:layout_constraintEnd_toEndOf="parent"
+			android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+			app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+			android:layout_marginStart="8dp"/>
+	<Button
+			android:text="get new token"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/btnGetNewToken" android:layout_marginTop="8dp"
+			app:layout_constraintTop_toBottomOf="@+id/btnReset" app:layout_constraintEnd_toEndOf="parent"
+			android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+			app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+			android:layout_marginStart="8dp"/>
+	<Button
+			android:text="call api"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:id="@+id/btnCallApi"
+			app:layout_constraintTop_toBottomOf="@+id/btnGetNewToken" app:layout_constraintEnd_toEndOf="parent"
+			android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+			app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+			android:layout_marginStart="8dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
